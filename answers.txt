@@ -1,0 +1,8 @@
+# Number and type of arguments passed to the dummy kernels in "kernels.cu"
+# Ok
+add float* float*
+add2 float* float*
+# Too few args
+toofew int*
+# Too many args
+toomany int* int* int* int*
