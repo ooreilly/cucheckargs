@@ -16,13 +16,14 @@ def checkargs(source : str, function : str, args : tuple):
     #TODO: Add support for type checking
 
     # Get CUDA kernel function signature
-    regex = r'extern\s+"C"\s+__global__\s+void\s+%s\s*\(([\w\W]+?)\)' % function
+    block = r'__global__\s+void\s+%s\s*\(([\w\W]+?)\)' % function
+    regex = r'extern\s+"C"\s+{%s}|(?:%s)' % (block, block)
     pattern = re.compile(regex, re.MULTILINE)
     match = re.findall(pattern, source)
 
     if not match:
         raise TypeError("Unable to parse: %s " % function)
-    params = match[0].split(",")
+    params = match[0][1].split(",")
     
     if len(params) != len(args):
         msg = "%s takes %d positional arguments but %d were given." % (function,
