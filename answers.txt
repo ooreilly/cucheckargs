@@ -6,3 +6,9 @@ add2 float* float*
 toofew int*
 # Too many args
 toomany int* int* int* int*
+# Function inside extern block
+# Too few
+block_toofew float*
+# Too many
+block_toomany float* float*
+

@@ -21,5 +21,8 @@ def test_checkargs():
 
     checkargs.checkargs(source, "add", args["add"])
     checkargs.checkargs(source, "add2", args["add2"])
-    with pytest.raises(TypeError) : checkargs.checkargs(source, "toofew", args["toofew"])
-    with pytest.raises(TypeError) : checkargs.checkargs(source, "toomany", args["toomany"])
+    with pytest.raises(TypeError) : checkargs.checkargs(source, "toofew", args["toofew"], )
+    with pytest.raises(TypeError) : checkargs.checkargs(source, "toomany", args["toomany"], )
+    with pytest.raises(TypeError) : checkargs.checkargs(source, "block_toofew", args["block_toofew"], )
+    with pytest.raises(TypeError) : checkargs.checkargs(source, "block_toomany", args["block_toomany"], )
+

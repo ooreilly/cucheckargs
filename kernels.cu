@@ -14,3 +14,9 @@ extern "C" __global__ void toofew(float *a, float *b) {
 // This function gets called with too many arguments
 extern "C" __global__ void toomany(float *a, float *b, int *c) { 
 }
+
+// Extern block containing several functions
+extern "C" {
+        __global__ void block_toofew(float *a, float *b) { }
+        __global__ void block_toomany(float *a, float *b, int *c) {  }
+}
